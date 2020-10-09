@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class SimpleController {
     var table = IntArray(10,{x->x*x})
+    var array1 = Array(5,{table})
 
     @RequestMapping("")
     fun info():String{
@@ -37,5 +38,10 @@ class SimpleController {
     @RequestMapping("array")
     fun getArray():IntArray{
         return table
+    }
+
+    fun getArrayValue():Int{
+        val a = array1[5][2]
+        return table[0]
     }
 }
