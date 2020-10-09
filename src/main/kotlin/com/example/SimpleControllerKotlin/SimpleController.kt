@@ -31,4 +31,10 @@ class SimpleController {
             @RequestParam("parameter") parameter: String):String{
         return "${id}: ${parameter} = "
     }
+
+    @RequestMapping("array")
+    fun getArray():IntArray{
+        val array = IntArray(10,{x->x*x})
+        return array
+    }
 }
