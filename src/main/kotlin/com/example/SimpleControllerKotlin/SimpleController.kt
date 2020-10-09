@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class SimpleController {
+    var table = IntArray(10,{x->x*x})
+
     @RequestMapping("")
     fun info():String{
         return "info 12345"
@@ -34,7 +36,6 @@ class SimpleController {
 
     @RequestMapping("array")
     fun getArray():IntArray{
-        val array = IntArray(10,{x->x*x})
-        return array
+        return table
     }
 }
