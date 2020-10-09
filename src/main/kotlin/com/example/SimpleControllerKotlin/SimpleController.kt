@@ -1,5 +1,6 @@
 package com.example.SimpleControllerKotlin
 
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -18,9 +19,16 @@ class SimpleController {
     //y = a*x + b
     fun linearFunction(
             @RequestParam("x") x:Double,
-            @RequestParam("a") a:Double,
-            @RequestParam("b") b:Double
+            @RequestParam("a",defaultValue = "2.0") a:Double,
+            @RequestParam("b",defaultValue = "5.0") b:Double
     ):Double{
         return a*x+b
+    }
+
+    @RequestMapping("student/{id}")
+    fun getStudent(
+            @PathVariable("id") id: Int,
+            @RequestParam("parameter") parameter: String):String{
+        return "${id}: ${parameter} = "
     }
 }
