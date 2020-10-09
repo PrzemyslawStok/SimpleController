@@ -16,7 +16,11 @@ class SimpleController {
     }
     @RequestMapping("linearFunction")
     //y = a*x + b
-    fun linearFunction(@RequestParam("x") x:Double):Double{
-        return 5*x
+    fun linearFunction(
+            @RequestParam("x") x:Double,
+            @RequestParam("a") a:Double,
+            @RequestParam("b") b:Double
+    ):Double{
+        return a*x+b
     }
 }
