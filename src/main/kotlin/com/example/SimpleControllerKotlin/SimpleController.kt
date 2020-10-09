@@ -40,8 +40,11 @@ class SimpleController {
         return table
     }
 
-    fun getArrayValue():Int{
-        val a = array1[5][2]
-        return table[0]
+    @RequestMapping("array/{i}/{j}")
+    fun getArrayValue(
+            @PathVariable("i") i:Int,
+            @PathVariable("j") j:Int   ):Int{
+
+        return table[i]
     }
 }
